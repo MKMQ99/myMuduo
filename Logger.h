@@ -1,6 +1,7 @@
 #pragma once
 
 #include "noncopyable.h"
+#include "Timestamp.h"
 #include <string>
 
 // LOG_INFO("%s %d, arg1, arg2")
