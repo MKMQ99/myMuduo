@@ -1,6 +1,7 @@
 #pragma once
 
 #include "noncopyable.h"
+#include <string>
 
 // LOG_INFO("%s %d, arg1, arg2")
 #define LOG_INFO(logMsgFormat, ...) \
@@ -69,4 +70,4 @@ class Logger : noncopyable{
         static Logger* log_;
         int LogLevel_;
         Logger(){}
-}
+};

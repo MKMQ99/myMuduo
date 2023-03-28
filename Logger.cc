@@ -3,7 +3,7 @@
 
 // 获取日志唯一的实例对象
 Logger* Logger::instance(){
-    if log_ == nullptr{
+    if (log_ == nullptr){
         log_ = new Logger();
     }
     return log_;
@@ -11,7 +11,7 @@ Logger* Logger::instance(){
 
 // 设置日志级别
 void Logger::setLogLevel(int Level){
-    LogLevel_ = level;
+    LogLevel_ = Level;
 }
 
 // 写日志 [级别信息] time : msg
