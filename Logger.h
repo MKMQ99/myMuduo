@@ -67,6 +67,11 @@ class Logger : noncopyable{
         void setLogLevel(int Level);
         // 写日志
         void log(std::string msg);
+        ~Logger(){
+            if (log_ != nullptr){
+                delete log_;
+            }
+        }
     private:
         static Logger* log_;
         int LogLevel_;
