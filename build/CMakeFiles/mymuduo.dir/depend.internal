@@ -8,6 +8,9 @@ CMakeFiles/mymuduo.dir/Channel.o
  /home/sq/Desktop/myMuduo/Logger.h
  /home/sq/Desktop/myMuduo/Timestamp.h
  /home/sq/Desktop/myMuduo/noncopyable.h
+CMakeFiles/mymuduo.dir/CurrentThread.o
+ /home/sq/Desktop/myMuduo/CurrentThread.cc
+ /home/sq/Desktop/myMuduo/CurrentThread.h
 CMakeFiles/mymuduo.dir/DefaultPoller.o
  /home/sq/Desktop/myMuduo/Channel.h
  /home/sq/Desktop/myMuduo/DefaultPoller.cc

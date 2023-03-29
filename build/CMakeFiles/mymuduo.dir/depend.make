@@ -8,6 +8,9 @@ CMakeFiles/mymuduo.dir/Channel.o: ../Logger.h
 CMakeFiles/mymuduo.dir/Channel.o: ../Timestamp.h
 CMakeFiles/mymuduo.dir/Channel.o: ../noncopyable.h
 
+CMakeFiles/mymuduo.dir/CurrentThread.o: ../CurrentThread.cc
+CMakeFiles/mymuduo.dir/CurrentThread.o: ../CurrentThread.h
+
 CMakeFiles/mymuduo.dir/DefaultPoller.o: ../Channel.h
 CMakeFiles/mymuduo.dir/DefaultPoller.o: ../DefaultPoller.cc
 CMakeFiles/mymuduo.dir/DefaultPoller.o: ../Poller.h
