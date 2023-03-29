@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/sq/Desktop/myMuduo/Channel.cc
-Channel.h
-/home/sq/Desktop/myMuduo/Channel.h
-sys/epoll.h
--
-EventLoop.h
-/home/sq/Desktop/myMuduo/EventLoop.h
-Logger.h
-/home/sq/Desktop/myMuduo/Logger.h
-
 /home/sq/Desktop/myMuduo/Channel.h
 noncopyable.h
 /home/sq/Desktop/myMuduo/noncopyable.h
@@ -33,6 +23,8 @@ Logger.h
 /home/sq/Desktop/myMuduo/Logger.h
 unistd.h
 -
+memory.h
+-
 
 /home/sq/Desktop/myMuduo/EPollPoller.h
 Poller.h
@@ -40,14 +32,6 @@ Poller.h
 vector
 -
 sys/epoll.h
--
-
-/home/sq/Desktop/myMuduo/EventLoop.h
-
-/home/sq/Desktop/myMuduo/Logger.cc
-Logger.h
-/home/sq/Desktop/myMuduo/Logger.h
-iostream
 -
 
 /home/sq/Desktop/myMuduo/Logger.h
