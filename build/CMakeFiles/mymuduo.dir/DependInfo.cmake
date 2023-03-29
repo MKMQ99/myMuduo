@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sq/Desktop/myMuduo/Channel.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/Channel.o"
   "/home/sq/Desktop/myMuduo/DefaultPoller.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/DefaultPoller.o"
+  "/home/sq/Desktop/myMuduo/EPollPoller.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/EPollPoller.o"
   "/home/sq/Desktop/myMuduo/EventLoop.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/EventLoop.o"
   "/home/sq/Desktop/myMuduo/InetAddress.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/InetAddress.o"
   "/home/sq/Desktop/myMuduo/Logger.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/Logger.o"

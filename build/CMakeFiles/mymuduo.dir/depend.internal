@@ -14,6 +14,14 @@ CMakeFiles/mymuduo.dir/DefaultPoller.o
  /home/sq/Desktop/myMuduo/Poller.h
  /home/sq/Desktop/myMuduo/Timestamp.h
  /home/sq/Desktop/myMuduo/noncopyable.h
+CMakeFiles/mymuduo.dir/EPollPoller.o
+ /home/sq/Desktop/myMuduo/Channel.h
+ /home/sq/Desktop/myMuduo/EPollPoller.cc
+ /home/sq/Desktop/myMuduo/EPollPoller.h
+ /home/sq/Desktop/myMuduo/Logger.h
+ /home/sq/Desktop/myMuduo/Poller.h
+ /home/sq/Desktop/myMuduo/Timestamp.h
+ /home/sq/Desktop/myMuduo/noncopyable.h
 CMakeFiles/mymuduo.dir/EventLoop.o
  /home/sq/Desktop/myMuduo/EventLoop.cc
  /home/sq/Desktop/myMuduo/EventLoop.h
