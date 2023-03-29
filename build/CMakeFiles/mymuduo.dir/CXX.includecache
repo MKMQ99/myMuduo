@@ -6,11 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/sq/Desktop/myMuduo/Logger.cc
+/home/sq/Desktop/myMuduo/Channel.cc
+Channel.h
+/home/sq/Desktop/myMuduo/Channel.h
+sys/epoll.h
+-
+EventLoop.h
+/home/sq/Desktop/myMuduo/EventLoop.h
 Logger.h
 /home/sq/Desktop/myMuduo/Logger.h
-iostream
+
+/home/sq/Desktop/myMuduo/Channel.h
+noncopyable.h
+/home/sq/Desktop/myMuduo/noncopyable.h
+functional
 -
+Timestamp.h
+/home/sq/Desktop/myMuduo/Timestamp.h
+memory
+-
+
+/home/sq/Desktop/myMuduo/EventLoop.h
 
 /home/sq/Desktop/myMuduo/Logger.h
 noncopyable.h
@@ -18,12 +34,6 @@ noncopyable.h
 Timestamp.h
 /home/sq/Desktop/myMuduo/Timestamp.h
 string
--
-
-/home/sq/Desktop/myMuduo/Timestamp.cc
-Timestamp.h
-/home/sq/Desktop/myMuduo/Timestamp.h
-time.h
 -
 
 /home/sq/Desktop/myMuduo/Timestamp.h

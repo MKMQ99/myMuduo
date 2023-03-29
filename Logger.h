@@ -7,39 +7,39 @@
 // LOG_INFO("%s %d, arg1, arg2")
 #define LOG_INFO(logMsgFormat, ...) \
     do { \
-        Logger &logger = Logger::instance(); \
-        logger.setLogLevel(INFO); \
+        Logger* logger = Logger::instance(); \
+        logger->setLogLevel(INFO); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
-        logger.log(buf); \
+        snprintf(buf, 1024, logMsgFormat, ##__VA_ARGS__); \
+        logger->log(buf); \
     } while(0)
 
 #define LOG_ERROR(logMsgFormat, ...) \
     do { \
-        Logger &logger = Logger::instance(); \
-        logger.setLogLevel(ERROR); \
+        Logger* logger = Logger::instance(); \
+        logger->setLogLevel(ERROR); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
-        logger.log(buf); \
+        snprintf(buf, 1024, logMsgFormat, ##__VA_ARGS__); \
+        logger->log(buf); \
     } while(0)
 
 #define LOG_FATAL(logMsgFormat, ...) \
     do { \
-        Logger &logger = Logger::instance(); \
-        logger.setLogLevel(FATAL); \
+        Logger* logger = Logger::instance(); \
+        logger->setLogLevel(FATAL); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
-        logger.log(buf); \
+        snprintf(buf, 1024, logMsgFormat, ##__VA_ARGS__); \
+        logger->log(buf); \
     } while(0)
 
 #ifdef MUDEBUG
 #define LOG_DEBUG(logMsgFormat, ...) \
     do { \
-        Logger &logger = Logger::instance(); \
-        logger.setLogLevel(DEBUG); \
+        Logger* logger = Logger::instance(); \
+        logger->setLogLevel(DEBUG); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
-        logger.log(buf); \
+        snprintf(buf, 1024, logMsgFormat, ##__VA_ARGS__); \
+        logger->log(buf); \
     } while(0) 
 #else
     #define LOG_DEBUG(logMsgFormat, ...)
