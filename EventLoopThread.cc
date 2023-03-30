@@ -37,6 +37,7 @@ EventLoop* EventLoopThread::startLoop(){
 }
 
 // 下面这个方法是在单独的新线程里面运行的
+// Thread类start后，回调函数就是threadFunc
 void EventLoopThread::threadFunc(){
     EventLoop loop; // 创建一个独立的eventloop，和上面的线程是一一对应的，one loop per thread
 
