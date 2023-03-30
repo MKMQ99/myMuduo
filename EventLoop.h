@@ -6,6 +6,7 @@
 #include "Timestamp.h"
 #include <memory>
 #include <mutex>
+#include "CurrentThread.h"
 
 class Channel;
 class Poller;
@@ -57,7 +58,6 @@ class EventLoop : noncopyable{
         std::unique_ptr<Channel> wakeupChannel_;
 
         ChannelList activeChannels_;
-        Channel *currentActivateChannel_;
 
         std::atomic_bool callingPendingFunctors_; // 标识当前loop是否有需要执行的回调操作
         std::vector<Functor> pendingFunctors_; // 存储loop需要执行的所有的回调操作

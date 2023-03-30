@@ -4,6 +4,7 @@
 CMakeFiles/mymuduo.dir/Channel.o
  /home/sq/Desktop/myMuduo/Channel.cc
  /home/sq/Desktop/myMuduo/Channel.h
+ /home/sq/Desktop/myMuduo/CurrentThread.h
  /home/sq/Desktop/myMuduo/EventLoop.h
  /home/sq/Desktop/myMuduo/Logger.h
  /home/sq/Desktop/myMuduo/Timestamp.h
@@ -14,6 +15,7 @@ CMakeFiles/mymuduo.dir/CurrentThread.o
 CMakeFiles/mymuduo.dir/DefaultPoller.o
  /home/sq/Desktop/myMuduo/Channel.h
  /home/sq/Desktop/myMuduo/DefaultPoller.cc
+ /home/sq/Desktop/myMuduo/EPollPoller.h
  /home/sq/Desktop/myMuduo/Poller.h
  /home/sq/Desktop/myMuduo/Timestamp.h
  /home/sq/Desktop/myMuduo/noncopyable.h
@@ -26,8 +28,14 @@ CMakeFiles/mymuduo.dir/EPollPoller.o
  /home/sq/Desktop/myMuduo/Timestamp.h
  /home/sq/Desktop/myMuduo/noncopyable.h
 CMakeFiles/mymuduo.dir/EventLoop.o
+ /home/sq/Desktop/myMuduo/Channel.h
+ /home/sq/Desktop/myMuduo/CurrentThread.h
  /home/sq/Desktop/myMuduo/EventLoop.cc
  /home/sq/Desktop/myMuduo/EventLoop.h
+ /home/sq/Desktop/myMuduo/Logger.h
+ /home/sq/Desktop/myMuduo/Poller.h
+ /home/sq/Desktop/myMuduo/Timestamp.h
+ /home/sq/Desktop/myMuduo/noncopyable.h
 CMakeFiles/mymuduo.dir/InetAddress.o
  /home/sq/Desktop/myMuduo/InetAddress.cc
  /home/sq/Desktop/myMuduo/InetAddress.h
