@@ -100,11 +100,11 @@ void EventLoop::quit(){
 // 在当前loop中执行cb
 void EventLoop::runInLoop(Functor cb)
 {
-  if (isInLoopThread()){
-    cb();
-  }else{
-    queueInLoop(std::move(cb));
-  }
+    if (isInLoopThread()){
+        cb();
+    }else{
+        queueInLoop(std::move(cb));
+    }
 }
 
 // 把cb放入队列中，唤醒loop所在线程，执行cb
