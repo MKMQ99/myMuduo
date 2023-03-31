@@ -76,3 +76,24 @@ doPendingFunctors并没有直接在临界区去执行functors,而是利用了一
 
 每个EventLoop都有成员wakeupFd，以及相应封装的wakeupChannel。wakeupFd是每个EventLoop构造时生成的eventfd，EventLoop用这个wakeupFd构造一个Channel就是wakeupChannel，对这个Channel enableReading，并将其放入Poller，如果有别的线程想要唤醒这个EventLoop，只需要向wakeupFd对应的eventfd写入，Poller就会检测到可读事件，从而唤醒相应EventLoop。
 
+### 3 EventLoop封装到线程中
+
+相关包括Thread类，EventLoopThread类，EventLoopThreadPool类
+
+muduo的并发模型为one loop per thread+ threadpool。
+
+EventLoopThread是事件循环线程，包含一个Thread对象，一个EventLoop对象。在构造函数中，把EventLoopThread::threadFunc 注册到Thread对象中（线程启动时会回调）。
+
+EventLoopThread工作流程：
+
+- 在主线程创建EventLoopThread对象。
+- 主线程调用EventLoopThread.startLoop()，startLoop()调用EventLoopThread中的Thread成员thread_的start()方法，然后等待Loop创建完成。
+- thread_的start()方法会新创建一个线程，因为线程一创建直接启动，所以start()方法要等待线程创建完成再返回，这里使用的是信号量。
+- 然后thread\_调用回调函数回到EventLoopThread类的threadFunc()方法，创建新的Loop，创建完成使用条件变量通知startLoop()。
+- startLoop()返回新Loop。
+
+EventLoopThreadPool是事件循环线程池，管理所有客户端连接，每个线程都有唯一一个事件循环,可以调用setThreadNum设置线程的数目。使用轮询策略获取事件循环线程。
+
+总体逻辑：
+
+![](https://github.com/MKMQ99/myMuduo/raw/main/img/EventLoopThread.png)
