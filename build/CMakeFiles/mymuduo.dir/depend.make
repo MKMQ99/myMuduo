@@ -64,6 +64,13 @@ CMakeFiles/mymuduo.dir/Poller.o: ../Poller.h
 CMakeFiles/mymuduo.dir/Poller.o: ../Timestamp.h
 CMakeFiles/mymuduo.dir/Poller.o: ../noncopyable.h
 
+CMakeFiles/mymuduo.dir/Socket.o: ../InetAddress.h
+CMakeFiles/mymuduo.dir/Socket.o: ../Logger.h
+CMakeFiles/mymuduo.dir/Socket.o: ../Socket.cc
+CMakeFiles/mymuduo.dir/Socket.o: ../Socket.h
+CMakeFiles/mymuduo.dir/Socket.o: ../Timestamp.h
+CMakeFiles/mymuduo.dir/Socket.o: ../noncopyable.h
+
 CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpServer.cc
 CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpServer.h
 

@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sq/Desktop/myMuduo/InetAddress.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/InetAddress.o"
   "/home/sq/Desktop/myMuduo/Logger.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/Logger.o"
   "/home/sq/Desktop/myMuduo/Poller.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/Poller.o"
+  "/home/sq/Desktop/myMuduo/Socket.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/Socket.o"
   "/home/sq/Desktop/myMuduo/TcpServer.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/TcpServer.o"
   "/home/sq/Desktop/myMuduo/Thread.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/Thread.o"
   "/home/sq/Desktop/myMuduo/Timestamp.cc" "/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir/Timestamp.o"

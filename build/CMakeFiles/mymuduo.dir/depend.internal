@@ -64,6 +64,13 @@ CMakeFiles/mymuduo.dir/Poller.o
  /home/sq/Desktop/myMuduo/Poller.h
  /home/sq/Desktop/myMuduo/Timestamp.h
  /home/sq/Desktop/myMuduo/noncopyable.h
+CMakeFiles/mymuduo.dir/Socket.o
+ /home/sq/Desktop/myMuduo/InetAddress.h
+ /home/sq/Desktop/myMuduo/Logger.h
+ /home/sq/Desktop/myMuduo/Socket.cc
+ /home/sq/Desktop/myMuduo/Socket.h
+ /home/sq/Desktop/myMuduo/Timestamp.h
+ /home/sq/Desktop/myMuduo/noncopyable.h
 CMakeFiles/mymuduo.dir/TcpServer.o
  /home/sq/Desktop/myMuduo/TcpServer.cc
  /home/sq/Desktop/myMuduo/TcpServer.h
