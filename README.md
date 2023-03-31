@@ -9,9 +9,7 @@ noncopyable 是一个公共基类，它的拷贝构造函数和赋值函数是de
 
 #### Logger
 
-Logger类用于日志记录，使用单例模式构造，可设置日志级别为INFO、
-
-ERROR、FATAL、DEBUG
+Logger类用于日志记录，使用单例模式构造，可设置日志级别为INFO、ERROR、FATAL、DEBUG
 
 #### TimeStamp
 
