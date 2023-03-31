@@ -54,7 +54,7 @@ void Socket::setReuseAddr(bool on){
 
 void Socket::setReusePort(bool on){
     int optval = on ? 1 : 0;
-    int ret = ::setsockopt(sockfd_, SOL_SOCKET, SO_REUSEPORT,
+    ::setsockopt(sockfd_, SOL_SOCKET, SO_REUSEPORT,
                 &optval, static_cast<socklen_t>(sizeof optval));
 }
 
