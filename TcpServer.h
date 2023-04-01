@@ -14,6 +14,8 @@
 #include "Callbacks.h"
 #include <atomic>
 #include <unordered_map>
+#include "TcpConnection.h"
+#include "Buffer.h"
 
 
 // 对外的服务器编程使用的类

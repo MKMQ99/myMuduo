@@ -335,6 +335,10 @@ atomic
 -
 unordered_map
 -
+TcpConnection.h
+/home/sq/Desktop/myMuduo/TcpConnection.h
+Buffer.h
+/home/sq/Desktop/myMuduo/Buffer.h
 
 /home/sq/Desktop/myMuduo/Thread.cc
 Thread.h
