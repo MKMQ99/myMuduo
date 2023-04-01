@@ -43,6 +43,7 @@ class TcpConnection : noncopyable, public std::enable_shared_from_this<TcpConnec
         void setMessageCallback(const MessageCallback& cb){ messageCallback_ = cb; }
         void setWriteCompleteCallback(const WriteCompleteCallback& cb){ writeCompleteCallback_ = cb; }
         void setHighWaterMarkCallback(const HighWaterMarkCallback& cb, size_t highWaterMark){ highWaterMarkCallback_ = cb; highWaterMark_ = highWaterMark; }
+        void setCloseCallback(const CloseCallback& cb){ closeCallback_ = cb; }
 
         // 连接建立
         void connectEstablished();
