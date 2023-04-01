@@ -97,3 +97,7 @@ EventLoopThreadPool是事件循环线程池，管理所有客户端连接，每�
 总体逻辑：
 
 ![](https://github.com/MKMQ99/myMuduo/raw/main/img/EventLoopThread.png)
+
+### 4 Acceptor与TcpServer
+
+Acceptor属于一个EventLoop，它负责处理新连接。Acceptor有成员acceptSocket和acceptChannel，初始化一个Acceptor会创建一个socket和对应的Channel。当调用Acceptor的listen方法，acceptSocket开始listen，之后acceptChannel_.enableReading()。检测到新连接就除法Acceptor的handleRead回调。
