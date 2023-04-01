@@ -35,7 +35,7 @@ class TcpConnection : noncopyable, public std::enable_shared_from_this<TcpConnec
         bool disconnected() const { return state_ == kDisconnected; }
 
         // 发送数据
-        void send(const void* message, int len);
+        void send(const std::string &buf);
         // 关闭连接
         void shutdown();
 
@@ -57,7 +57,7 @@ class TcpConnection : noncopyable, public std::enable_shared_from_this<TcpConnec
         void handleClose();
         void handleError();
 
-        void sendInLoop(const void* message, size_t len);
+        void sendInLoop(const void* data, size_t len);
         void shutdownInLoop();
 
         void setState(StateE s) { state_ = s; }
@@ -80,6 +80,7 @@ class TcpConnection : noncopyable, public std::enable_shared_from_this<TcpConnec
         CloseCallback closeCallback_;
 
         size_t highWaterMark_;
-        Buffer inputBuffer_;
-        Buffer outputBuffer_;
+
+        Buffer inputBuffer_; // 接收数据的缓冲区
+        Buffer outputBuffer_; // 发送数据的缓冲区
 };
