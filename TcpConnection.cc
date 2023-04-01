@@ -70,12 +70,22 @@ void TcpConnection::shutdown(){
 
 // 连接建立
 void TcpConnection::connectEstablished(){
+    setState(kConnected);
+    channel_->tie(shared_from_this());
+    channel_->enableReading(); // 向poller注册channel的epollin事件
 
+    //新连接建立，执行回调
+    connectionCallback_(shared_from_this());
 }
 
 // 连接销毁
 void TcpConnection::connectDestroyed(){
-
+    if (state_ == kConnected){
+        setState(kDisconnected);
+        channel_->disableAll(); // 把channel的所有感兴趣的事件，从poller中del掉
+        connectionCallback_(shared_from_this());
+    }
+    channel_->remove(); // 把channel从poller中删除掉
 }
 
 void TcpConnection::handleRead(Timestamp receiveTime){
@@ -191,7 +201,7 @@ void TcpConnection::sendInLoop(const void* data, size_t len){
 }
 
 void TcpConnection::shutdownInLoop(){
-    if (!channel_->isWriting()){
-        socket_->shutdownWrite();
+    if (!channel_->isWriting()){ // 说明outputBuffer中的数据已经全部发送完成
+        socket_->shutdownWrite(); // 关闭写端
     }
 }
