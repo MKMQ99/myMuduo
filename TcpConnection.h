@@ -3,13 +3,13 @@
 #include <memory>
 #include <string>
 #include <atomic>
-#include <InetAddress.h>
+#include "InetAddress.h"
 #include "Callbacks.h"
 #include "Buffer.h"
 #include "Timestamp.h"
+#include "EventLoop.h"
 
 class Channel;
-class EventLoop;
 class Socket;
 
 /**
@@ -59,6 +59,8 @@ class TcpConnection : noncopyable, public std::enable_shared_from_this<TcpConnec
 
         void sendInLoop(const void* message, size_t len);
         void shutdownInLoop();
+
+        void setState(StateE s) { state_ = s; }
 
         EventLoop *loop_; // 这里绝对不是baseLoop，因为TcpConnection都是在subLoop里管理的
         const std::string name_;
