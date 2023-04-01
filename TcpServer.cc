@@ -3,7 +3,7 @@
 #include "Logger.h"
 #include "Callbacks.h"
 
-EventLoop* CheckLoopNotNul(EventLoop* Loop){
+static EventLoop* CheckLoopNotNull(EventLoop* Loop){
     if (Loop == nullptr){
         LOG_FATAL("%s:%s:%d mainLoop is null! \n", __FILE__, __FUNCTION__, __LINE__);
     }
@@ -14,7 +14,7 @@ TcpServer::TcpServer(EventLoop* loop,
                      const InetAddress& listenAddr,
                      const std::string& nameArg,
                      Option option)
-    : loop_(CheckLoopNotNul(loop))
+    : loop_(CheckLoopNotNull(loop))
     , ipPort_(listenAddr.toIpPort())
     , name_(nameArg)
     , acceptor_(new Acceptor(loop, listenAddr, option == kReusePort))
