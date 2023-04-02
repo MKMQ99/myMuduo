@@ -29,14 +29,14 @@ void EPollPoller::updateChannel(Channel* channel){
     const int index = channel->index();
     LOG_INFO("func=%s => fd=%d events=%d index=%d \n", __FUNCTION__, channel->fd(), channel->events(), index);
     if (index == kNew || index == kDeleted){
-        int fd = channel->fd();
         if (index == kNew){
+            int fd = channel->fd();
             channels_[fd] = channel;
-        }else{
-            channel->set_index(kAdded);
-            update(EPOLL_CTL_ADD, channel);
         }
+        channel->set_index(kAdded);
+        update(EPOLL_CTL_ADD, channel);
     }else{ // channel已经在poller上注册过了
+        int fd = channel->fd();
         if(channel->isNoneEvent()){
             update(EPOLL_CTL_DEL, channel);
             channel->set_index(kDeleted);

@@ -9,7 +9,7 @@
  */
 
 ssize_t Buffer::readFd(int fd, int* savedErrno){
-    char extrabuf[65536]; // 栈上的内存空间 64K
+    char extrabuf[65536] = {0}; // 栈上的内存空间 64K
     struct iovec vec[2];
     const size_t writable = writableBytes(); // 这是Buffer底层缓冲区剩余的可写空间大小
     vec[0].iov_base = begin()+writerIndex_;

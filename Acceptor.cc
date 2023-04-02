@@ -8,7 +8,7 @@
 #include "InetAddress.h"
 
 static int createNonblocking(){
-    int sockfd = ::socket(AF_INET, SOCK_STREAM | SOCK_CLOEXEC, IPPROTO_TCP);
+    int sockfd = ::socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP);
     if (sockfd < 0){
         LOG_FATAL("%s:%s:%d listen socket create err:%d \n", __FILE__, __FUNCTION__, __LINE__, errno);
     }
@@ -22,7 +22,7 @@ Acceptor::Acceptor(EventLoop* loop, const InetAddress& listenAddr, bool reusepor
     , listenning_(false)
     {
         acceptSocket_.setReuseAddr(true);
-        acceptSocket_.setReusePort(reuseport);
+        acceptSocket_.setReusePort(true);
         acceptSocket_.bindAddress(listenAddr); // 绑定套接字
         // TcpServer::start()  Accrptor.listen() 
         // 有新用户连接，要执行一个回调，（connfd -> channel -> subloop）
