@@ -52,7 +52,9 @@ void TcpServer::setThreadNum(int numThreads){
 void TcpServer::start(){
     // 防止一个TcpServer对象被start多次
     if (started_++ == 0){
+        // 开启子线程
         threadPool_->start(threadInitCallback_);
+        // 只是注册acceptor的listen，没有开启loop，所以使用的时候还得手动开启loop
         loop_->runInLoop(std::bind(&Acceptor::listen, acceptor_.get()));
     }
 }
@@ -93,7 +95,7 @@ void TcpServer::newConnection(int sockfd, const InetAddress &peerAddr){
     // 设置了如何关闭连接的回调  conn->shutdown
     conn->setCloseCallback(std::bind(&TcpServer::removeConnection, this, std::placeholders::_1));
     
-    // 直接调用
+    // 连接建立
     ioLoop->runInLoop(std::bind(&TcpConnection::connectEstablished, conn));
 }
 
