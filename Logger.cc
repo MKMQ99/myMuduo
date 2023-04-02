@@ -3,10 +3,8 @@
 
 // 获取日志唯一的实例对象
 Logger* Logger::instance(){
-    if (log_ == nullptr){
-        log_ = new Logger();
-    }
-    return log_;
+    static Logger logger;
+    return &logger;
 }
 
 // 设置日志级别
