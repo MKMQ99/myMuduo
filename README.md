@@ -113,3 +113,21 @@ Buffer仅有3个成员，存放数据的vector\<char\> buffer\_，已经size_t�
 
 [(53条消息) Muduo 设计与实现之一：Buffer 类的设计_muduo库buffer_陈硕的博客-CSDN博客](https://blog.csdn.net/solstice/article/details/6329080)
 
+### 6 TcpServer 和 TcpConnection
+
+TcpServer类拥有私有成员 accept\_ 和 threadPool\_ ，accept\_用于处理新连接，threadPool\_就是EventLoopThreadPool类。TcpServer会有4个回调成员：
+
+- connectionCallback\_; // 有新连接时的回调
+- messageCallback\_; // 有读写消息时的回调
+- writeCompleteCallback\_; // 消息发送完成以后的回调
+- threadInitCallback\_; // loop 线程初始化的回调
+
+当使用TcpServer::start()方法开始监听，TcpServer就会开启子线程，threadPool\_->start(threadInitCallback_);
+
+同时注册acceptor的listen：loop\_->runInLoop(std::bind(&Acceptor::listen, acceptor_.get()));
+
+当客户端使用baseLoop的loop方法时，循环就开始了
+
+总逻辑图：
+
+![](https://github.com/MKMQ99/myMuduo/raw/main/img/总逻辑.png)
