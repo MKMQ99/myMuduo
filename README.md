@@ -98,6 +98,18 @@ EventLoopThreadPool是事件循环线程池，管理所有客户端连接，每�
 
 ![](https://github.com/MKMQ99/myMuduo/raw/main/img/EventLoopThread.png)
 
-### 4 Acceptor与TcpServer
+### 4 Acceptor
 
-Acceptor属于一个EventLoop，它负责处理新连接。Acceptor有成员acceptSocket和acceptChannel，初始化一个Acceptor会创建一个socket和对应的Channel。当调用Acceptor的listen方法，acceptSocket开始listen，之后acceptChannel_.enableReading()。检测到新连接就除法Acceptor的handleRead回调。
+Acceptor属于一个EventLoop，它负责处理新连接。Acceptor有成员acceptSocket和acceptChannel，初始化一个Acceptor会创建一个socket和对应的Channel。当调用Acceptor的listen方法，acceptSocket开始listen，之后acceptChannel_.enableReading()。检测到新连接就触发Acceptor的handleRead回调。
+
+### 5 Buffer
+
+应用层为什么需要Buffe：非阻塞IO的核心思想是避免阻塞在read()或write()或其它IO系统调用上，这样可以最大最大限度的复用。
+
+- TcpConnection需要有output buffer。假设程序想发送100KB的数据，但是调用write之后，操作系统只接受了80KB（受TCP advertised window控制），调用者肯定不想原地等待，如果有buffer，调用者只管将数据放入buffer，其它由网络库处理即可。
+- TcpConnection需要有input buffer。TCP是一个无边界的字节流协议，接收方必须要处理“收到的数据尚不构成一条完整的消息”和“一次收到两条消息的数据”等情况。如果有buffer，网络库收到数据之后，先放到input buffer，等构成一条完整的消息再通知程序的业务逻辑。同时，网络库在处理“socket 可读”事件的时候，必须一次性把 socket 里的数据读完（从操作系统 buffer 搬到应用层 buffer），否则会反复触发 POLLIN 事件，造成 busy-loop。
+
+Buffer仅有3个成员，存放数据的vector\<char\> buffer\_，已经size_t类型的readerIndex\_和writerIndex\_。
+
+[(53条消息) Muduo 设计与实现之一：Buffer 类的设计_muduo库buffer_陈硕的博客-CSDN博客](https://blog.csdn.net/solstice/article/details/6329080)
+
