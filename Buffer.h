@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
 
 
 /// A buffer class modeled after org.jboss.netty.buffer.ChannelBuffer
@@ -30,6 +31,16 @@ class Buffer{
         size_t prependableBytes() const{ return readerIndex_; }
         // 返回缓冲区中可读数据的起始地址
         const char* peek() const{ return begin() + readerIndex_; }
+
+        const char* findCRLF() const{
+            const char* crlf = std::search(peek(), beginWrite(), kCRLF, kCRLF+2);
+            return crlf == beginWrite() ? NULL : crlf;
+        }
+
+        const char* findCRLF(const char* start) const{
+            const char* crlf = std::search(start, beginWrite(), kCRLF, kCRLF+2);
+            return crlf == beginWrite() ? NULL : crlf;
+        }
         
         // onMessage string <- Buffer
         void retrieve(size_t len){
@@ -38,6 +49,10 @@ class Buffer{
             }else{
                 retrieveAll();
             }
+        }
+
+        void retrieveUntil(const char* end){
+            retrieve(end - peek());
         }
 
         void retrieveAll(){
@@ -85,6 +100,7 @@ class Buffer{
         }
 
         char* beginWrite(){ return begin() + writerIndex_; }
+        const char* beginWrite() const { return begin() + writerIndex_; }
         void hasWritten(size_t len){writerIndex_ += len;}
 
         // 从fd上读取数据
@@ -99,4 +115,6 @@ class Buffer{
         std::vector<char> buffer_;
         size_t readerIndex_;
         size_t writerIndex_;
+
+        static const char kCRLF[];
 };
