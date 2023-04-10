@@ -1,3 +1,4 @@
+#pragma once
 #include <mymuduo/Timestamp.h>
 #include <map>
 #include <stdio.h>
