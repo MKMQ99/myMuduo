@@ -60,6 +60,20 @@ void TcpConnection::send(const std::string &buf){
     }
 }
 
+void TcpConnection::send(Buffer* buf)
+{
+    if (state_ == kConnected){
+        if (loop_->isInLoopThread()){
+            sendInLoop(buf->peek(), buf->readableBytes());
+            buf->retrieveAll();
+        }else{
+            void (TcpConnection::*fp)(const void* message, size_t len) = &TcpConnection::sendInLoop;
+            std::string str(buf->retrieveAllAsString());
+            loop_->runInLoop(std::bind(fp, this, str.c_str(), sizeof(str)));
+        }
+    }
+}
+
 // 关闭连接
 void TcpConnection::shutdown(){
     if (state_ == kConnected){

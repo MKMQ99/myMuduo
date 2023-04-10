@@ -8,6 +8,7 @@
 #include "Buffer.h"
 #include "Timestamp.h"
 #include "EventLoop.h"
+#include <any>
 
 class Channel;
 class Socket;
@@ -36,8 +37,13 @@ class TcpConnection : noncopyable, public std::enable_shared_from_this<TcpConnec
 
         // 发送数据
         void send(const std::string &buf);
+        void send(Buffer* message);
         // 关闭连接
         void shutdown();
+
+        void setContext(const std::any& context){ context_ = context; }
+
+        std::any* getMutableContext() { return &context_; }
 
         void setConnectionCallback(const ConnectionCallback& cb){ connectionCallback_ = cb; }
         void setMessageCallback(const MessageCallback& cb){ messageCallback_ = cb; }
@@ -84,4 +90,5 @@ class TcpConnection : noncopyable, public std::enable_shared_from_this<TcpConnec
 
         Buffer inputBuffer_; // 接收数据的缓冲区
         Buffer outputBuffer_; // 发送数据的缓冲区
+        std::any context_;
 };
