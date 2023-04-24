@@ -1,3 +1,5 @@
 /home/sq/Desktop/myMuduo/build/CMakeFiles/rebuild_cache.dir
 /home/sq/Desktop/myMuduo/build/CMakeFiles/edit_cache.dir
-/home/sq/Desktop/myMuduo/build/CMakeFiles/mymuduo.dir
+/home/sq/Desktop/myMuduo/build/lib/CMakeFiles/rebuild_cache.dir
+/home/sq/Desktop/myMuduo/build/lib/CMakeFiles/edit_cache.dir
+/home/sq/Desktop/myMuduo/build/lib/CMakeFiles/mymuduo.dir
